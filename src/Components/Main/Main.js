@@ -1,15 +1,17 @@
-import { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
-import { mainRoutes } from "../../routes/mainRoutes";
-
+import {Suspense} from "react";
+import {Route, Routes} from "react-router-dom";
+import {mainRoutes} from "../../routes/mainRoutes";
 
 const Main = () => {
     return (
         <>
             <Suspense fallback='loading...'>
                 <Routes>
-                    {mainRoutes.map((route) => (
-                        <Route path={route.path} element={route.component} key={route.path} />
+                    {mainRoutes.map(({path, component:Component}) => (
+                        <Route path={path}
+                            // exact
+                               element={<Component/>}
+                               key={path}/>
                     ))}
                 </Routes>
             </Suspense>

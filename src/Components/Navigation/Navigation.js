@@ -1,32 +1,31 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { mainRoutes } from "../../routes/mainRoutes";
+import {NavLink, useLocation} from "react-router-dom";
+import {mainRoutes} from "../../routes/mainRoutes";
 
 const Navigation = () => {
-  const location = useLocation()
+    const location = useLocation()
 
-  return (
-    <>
-      <div>Hello</div>
-      <button>Btn</button>
-      <ul>
-        {mainRoutes.map((route) => (
-          <li key={route.path}>
-            <NavLink
-              to={{
-                pathname: route.path,
-                state: { from: location.pathname },
-              }}
-              exact={route.exact}
-              className=""
-              activeClassName=""
-            >
-              {route.name}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </>
-  );
+    return (
+        <>
+            <button>Btn</button>
+            <ul>
+                {mainRoutes.map(({path,name}) => (
+                    <li key={path}>
+                        <NavLink
+                            to={{
+                                pathname:path,
+                                state: {from: location.pathname},
+                            }}
+                            // exact
+                            // className=""
+                            // activeClassName=""
+                        >
+                            {name}
+                        </NavLink>
+                    </li>
+                ))}
+            </ul>
+        </>
+    );
 };
 
 export default Navigation;
