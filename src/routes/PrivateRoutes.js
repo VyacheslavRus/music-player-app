@@ -1,11 +1,9 @@
-import React from "react";
-import { Redirect, Route } from "react-router";
-const PrivateRoutes = ({ path, exact, component, auth }) => {
-  return auth ? (
-    <Route path={path} exact={exact} component={component} />
-  ) : (
-    <Redirect to="/login" />
-  );
-};
+import {Navigate} from "react-router-dom";
+
+import React from 'react';
+
+function PrivateRoutes({ element:Component, auth}) {
+    return auth ? <Component/> : <Navigate to="/login" />;
+}
 
 export default PrivateRoutes;

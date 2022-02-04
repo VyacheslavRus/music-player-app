@@ -1,12 +1,20 @@
 import { lazy } from "react";
+import {CgProfile} from "react-icons/cg";
+import {BiHome} from "react-icons/bi";
+
+import {FiHeart ,FiSettings} from "react-icons/fi";
+
+import { RiPlayListLine} from "react-icons/ri";
+
 
 export const mainRoutes = [
   {
-    name: "",
+    name: "Домой",
     path: "/",
     private: false,
     restricted: false,
     exact: true,
+    icon:<BiHome/>,
     component: lazy(() =>
       import("../pages/HomePage" /*webpackChunkName:'HomePage'*/)
     ),
@@ -17,6 +25,7 @@ export const mainRoutes = [
     private: true,
     restricted: false,
     exact: true,
+    icon:<CgProfile/>,
     component: lazy(() =>
       import("../pages/UserPage" /*webpackChunkName:'UserProfile'*/)
     ),
@@ -27,6 +36,7 @@ export const mainRoutes = [
     private: true,
     restricted: false,
     exact: true,
+    icon:<RiPlayListLine/>,
     component: lazy(() =>
       import("../pages/UserPlayListPage" /*webpackChunkName:'UserPlayList'*/)
     ),
@@ -37,6 +47,7 @@ export const mainRoutes = [
     private: true,
     restricted: false,
     exact: true,
+    icon:<FiHeart/>,
     component: lazy(() =>
       import("../pages/LikedSongsPage" /*webpackChunkName:'LikedSongs'*/)
     ),
@@ -47,6 +58,7 @@ export const mainRoutes = [
     private: true,
     restricted: false,
     exact: true,
+    icon:<FiSettings/>,
     component: lazy(() =>
       import("../pages/SettingsPage" /*webpackChunkName:'Settings'*/)
     ),

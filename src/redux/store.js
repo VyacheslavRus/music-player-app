@@ -1,10 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import persistStore from "redux-persist/es/persistStore";
+import sidebarReducer from "../redux/sidebar/sidebarSlice"
 
 export const store = configureStore({
     reducer: {
-
+        sidebar: sidebarReducer
     }
 })
 
-export const persistor = persistStore(store)
