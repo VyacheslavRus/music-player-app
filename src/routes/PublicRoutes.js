@@ -1,11 +1,11 @@
-import React from "react";
-import { Redirect, Route } from "react-router";
-const PublicRoutes = ({ path, exact, component, auth, restricted }) => {
-  return auth && restricted ? (
-    <Redirect to="/" />
-  ) : (
-    <Route path={path} exact={exact} component={component} />
-  );
-};
+import {Navigate} from "react-router-dom";
+
+import React from 'react';
+
+function PublicRoutes({ element:Component, auth , restricted}) {
+
+    return auth && restricted ? <Component/> : <Navigate to="/" />;
+
+}
 
 export default PublicRoutes;

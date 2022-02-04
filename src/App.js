@@ -1,12 +1,14 @@
-import Main from './Components/Main/Main';
-import Navigation from './Components/Navigation/Navigation';
 import {AppWrapper} from "./AppStyled";
+import Topbar from "./Components/Topbar/Topbar";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Content from "./Components/Content/Content";
 
 const App = () => {
     return (
-        <AppWrapper className={'container'}>
-            <Navigation/>
-            <Main/>
+        <AppWrapper>
+            <Topbar/>
+            <Sidebar/>
+            <Content/>
         </AppWrapper>
     );
 }
