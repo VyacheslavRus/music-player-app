@@ -11,8 +11,8 @@ export const mainRoutes = [
   {
     name: "Домой",
     path: "/",
-    private: false,
-    restricted: false,
+    private: true,
+    restricted: true,
     exact: true,
     icon:<BiHome/>,
     component: lazy(() =>

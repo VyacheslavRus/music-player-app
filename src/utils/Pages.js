@@ -1,26 +1,26 @@
 import React, {Suspense} from 'react';
-import {Route, Routes,  } from "react-router-dom";
+import {Navigate, Route, Routes,} from "react-router-dom";
 import {mainRoutes} from "../routes/mainRoutes";
-import PrivateRoutes from '../routes/PrivateRoutes'
-import PublicRoutes from "../routes/PublicRoutes";
+import AuthPage from "../pages/AuthPage";
 
 function Pages(props) {
-    const authToken = true
+
+    const AUTH_TOKEN = ''
+
+    const redirect = (token ,Component) => {
+        return token ? <Component/> : <Navigate to="/login"/> && <AuthPage/>
+    }
+
     return (
         <>
             <Suspense fallback='loading...'>
                 <Routes>
-                    {mainRoutes.map(({path, private: IsPrivate,restricted, component: Component, icon, exact}) => (
+                    {mainRoutes.map(({path, private: IsPrivate, restricted, component: Component, icon, exact}) => (
                         <Route path={path}
-                        exact={`${exact}`}
-                        // element={
-                        //     IsPrivate
-                        //     ? <PrivateRoutes auth={authToken} element={Component} restricted={restricted}/>
-                        //     : <PublicRoutes auth={authToken} element={Component} restricted={restricted}/>
-                        // }
-                            element={<Component/>}
-                        key={path}/>
-                        ))}
+                               exact
+                               element={redirect(AUTH_TOKEN,Component)}
+                               key={path}/>
+                    ))}
                 </Routes>
             </Suspense>
         </>
