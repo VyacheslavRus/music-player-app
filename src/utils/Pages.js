@@ -5,7 +5,7 @@ import AuthPage from "../pages/AuthPage";
 
 function Pages(props) {
 
-    const AUTH_TOKEN = ''
+    const AUTH_TOKEN = false
 
     const redirect = (token ,Component) => {
         return token ? <Component/> : <Navigate to="/login"/> && <AuthPage/>
