@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useLocation } from "react-router";
-import schema from "./validation/validator";
+import { AuthFormStyled } from "./AuthFormStyled";
+import schema from "./Validation/validator";
 
 const registrationValues = {
   email: "",
@@ -16,18 +17,10 @@ const AuthForm = () => {
   const location = useLocation();
 
   return (
-    <div
-    //   className={container}
-    >
-      <div
-      //   className={AuthFormContainer}
-      ></div>
-      <div
-      //   className={navContainer}
-      >
-        <h1
-        //   className={authTitle}
-        >
+    <AuthFormStyled>
+      <div className={"authFormContainer"}></div>
+      <div className="navContainer">
+        <h1 className="authTitle">
           {location.pathname === "/registration" ? "регистрация" : "вход"}
         </h1>
         <Formik
@@ -43,9 +36,7 @@ const AuthForm = () => {
           //     : ;
           // }}
         >
-          <Form
-          //   className={form}
-          >
+          <Form className="form">
             {location.pathname === "/registration" ? (
               <>
                 <label>
@@ -53,7 +44,7 @@ const AuthForm = () => {
                     type="text"
                     name="username"
                     placeholder="Имя *"
-                    // className={style.input}
+                    className="input"
                   />
                   <ErrorMessage name="username" component="div" />
                 </label>
@@ -62,7 +53,7 @@ const AuthForm = () => {
                     type="email"
                     name="email"
                     placeholder="Електронна почта *"
-                    // className={input}
+                    className="input"
                   />
                   <ErrorMessage name="email" component="div" />
                 </label>
@@ -71,14 +62,11 @@ const AuthForm = () => {
                     type="password"
                     name="password"
                     placeholder="Пароль *"
-                    // className={input}
+                    className="input"
                   />
                   <ErrorMessage name="password" component="div" />
                 </label>
-                <button
-                  type="submit"
-                  //   className={buttons}
-                >
+                <button type="submit" className="buttons">
                   {location.pathname === "/registration"
                     ? "Регистрация"
                     : "Вход"}
@@ -91,7 +79,7 @@ const AuthForm = () => {
                     type="email"
                     name="email"
                     placeholder="Електронна почта *"
-                    // className={input}
+                    className="input"
                   />
                   <ErrorMessage name="email" component="div" />
                 </label>
@@ -100,14 +88,11 @@ const AuthForm = () => {
                     type="password"
                     name="password"
                     placeholder="Пароль *"
-                    // className={input}
+                    className="input"
                   />
                   <ErrorMessage name="password" component="div" />
                 </label>
-                <button
-                  type="submit"
-                  //   className={buttons}
-                >
+                <button type="submit" className="buttons">
                   {location.pathname === "/registration"
                     ? "Регистрация"
                     : "Вход"}
@@ -117,7 +102,7 @@ const AuthForm = () => {
           </Form>
         </Formik>
       </div>
-    </div>
+    </AuthFormStyled>
   );
 };
 
