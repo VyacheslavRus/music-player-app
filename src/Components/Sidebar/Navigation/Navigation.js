@@ -3,31 +3,14 @@ import {mainRoutes} from "../../../routes/mainRoutes";
 import cls from "classnames";
 import {useState} from "react";
 import {NavigationStyled} from "./NavigationStyled";
+import NavItems from "./NavItems";
 
 const Navigation = () => {
-    const location = useLocation();
-    // const [toglBurger, setToglBurger] = useState(false);
-    // const hendleToglBurger = () => {
-    //     setToglBurger(!toglBurger);
-    // };
-
     return (
         <NavigationStyled>
-                <ul className="burgerList">
-                    {mainRoutes.map(({path, name,private: IsPrivate, icon,exact}) => (
-                        !IsPrivate && <li key={path} className="navItem">
-
-                            <NavLink
-                                to={{
-                                    pathname: path,
-                                    state: {from: location.pathname},
-                                }}
-                                exact={`${exact}`}
-                                className="navItemLink"
-                            >
-                                <span className='iconSpan'>{icon}</span>{name}
-                            </NavLink>
-                        </li>
+                <ul className="navList">
+                    {mainRoutes.map(({path, name,private: IsPrivate, icon,exact,restricted}) => (
+                        <NavItems name={name} exact={exact} icon={icon} IsPrivate={IsPrivate} path={path} key={path} restricted={restricted}/>
                     ))}
                 </ul>
         </NavigationStyled>

@@ -12,7 +12,7 @@ export const mainRoutes = [
     name: "Домой",
     path: "/",
     private: true,
-    restricted: true,
+    restricted: false,
     exact: true,
     icon:<BiHome/>,
     component: lazy(() =>
