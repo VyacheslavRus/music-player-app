@@ -1,0 +1,1 @@
+export const getSidebarSelectors = (state)=> state.sidebar
